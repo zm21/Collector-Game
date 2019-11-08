@@ -15,6 +15,10 @@ enum Score_inf
 	score_add_default = 100, //дефолтне значення очків за спійманий символ
 	score_boost_default = 1, //дефолтне значення бусту (стає при втраті серії з правильно спійманих елементів поспіль)
 };
+
+
+void Start_play();
+
 void Tracking_collerctor();
 void Cathc_true_drop(Drop &falling_symbol);
 void Cathc_false_drop(Drop &falling_symbol);
