@@ -60,3 +60,10 @@ void Print_interface()
 	gotoxy(x_bonus_task, y_bonus_task);
 	cout << "Bonus task: " << score;
 }
+
+void Clear_line(int const x, const int y)
+{
+	gotoxy(x, y);
+	for (int i = 0; i < 100; i++)
+		cout << " ";
+}

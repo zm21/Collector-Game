@@ -30,6 +30,9 @@
     <ClCompile Include="GamePrint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StartGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Menu.h">
@@ -48,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GamePrint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCoords.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

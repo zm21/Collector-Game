@@ -1,5 +1,4 @@
 #include "Menu.h"
-#include <Windows.h>
 #include <conio.h>
 #include <ctime>
 using namespace std;
@@ -7,26 +6,7 @@ using namespace std;
 
 
 
-enum control_the_game
-{
-	left = 'a', right = 'd'
-};
-enum Game_interface_coords   //координати ≥грового ≥нтерфейсу
-{
-	x_enter_player_name = 45, y_enter_player_name = 7,  //позиц≥€ вводу ≥мен≥ гравц€
-	x_re_enter_player_name = 30, //позиц≥€ повторного вводу ≥мен≥ гравц€ у раз≥ не коректного н≥кнейму
-	x_first_game_mode = 48, y_first_game_mode = 9, //позиц≥€ виводу вибору першого ≥грового режиму
-	x_second_game_mode = 47, y_second_game_mode = 11, //позиц≥€ виводу вибору другого ≥грового режиму
-	x_enter_the_selected_game_mode = 49, y_enter_the_selected_game_mode = 13, //позиц≥€ вводу вибраного режиму
-	x_re_enter_the_selected_game_mode = 43, y_re_enter_the_selected_game_mode = 13, //позиц≥€ повторного вводу вибраного режиму у раз≥ не коректност≥ попередньо вибраного режиму 
-	x_player_name = 33, y_player_name = 2, //позиц≥€ виводу гравц€
-	x_life = 33, y_life = 4, //позиц≥€ виводу житт€
-	x_score = 33, y_score = 6, //позиц≥€ виводу очк≥в
-	x_bonus_task = 33, y_bonus_task = 8, // позиц≥€ виводу бонусного завданн€
-	left_spawn = 1, right_spawn = 29, //л≥ва та права межа спавна дропу
-	height_spawn = 1, //висота спавну
-	left_border_move = 0, right_border_move = 30 //л≥ва та права межа руху коллектора
-};
+
 enum Game_mode
 {
 	math_mode = 1, //математичний режим
@@ -70,41 +50,7 @@ int main()
 
 
 
-void Start_play()
-{
-	system("cls");
-	Print_game_logo();
-	gotoxy(x_enter_player_name, y_enter_player_name);
-	cout << "Enter player name:";
-	cin >> player_name;
-	while (strlen(player_name) > 10)
-	{
-		Clear_line(x_re_enter_player_name, y_enter_player_name);
-		gotoxy(x_re_enter_player_name, y_enter_player_name);
-		cout << "Maximum nickname length is 10 characters! Try again:";
-		cin >> player_name;
-	}
-	gotoxy(x_first_game_mode, y_first_game_mode);
-	cout << "[" << math_mode << "]Math mode";
-	gotoxy(x_second_game_mode, y_second_game_mode);
-	cout << "[" << verbal_mode << "]Verbal mode";
-	gotoxy(x_enter_the_selected_game_mode, y_enter_the_selected_game_mode);
-	cout << "Game mode:";
-	cin >> game_mode;
-	while (game_mode<math_mode || game_mode>verbal_mode)
-	{
-		Clear_line(x_re_enter_the_selected_game_mode, y_re_enter_the_selected_game_mode);
-		gotoxy(x_re_enter_the_selected_game_mode, y_re_enter_the_selected_game_mode);
-		cout << "Wrong game mode! Try again:";
-		cin >> game_mode;
-	}
-	Print_play_zone();
-	Print_interface();
-	Tracking_collerctor();
-	Sleep(3000);
-	gotoxy(0, 26);
-	system("pause");
-}
+
 
 
 
@@ -306,9 +252,3 @@ void No_cathc_false_drop(Drop &falling_symbol) //не сп≥ймано Ќ≈ правильний симво
 	Ini_falling_symbol(falling_symbol); //рандомимо новий символ
 }
 
-void Clear_line(int const x, const int y)
-{
-	gotoxy(x, y);
-	for (int i = 0; i < 100; i++)
-		cout << " ";
-}

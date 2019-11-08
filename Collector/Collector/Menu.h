@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
-#include "GlobalVariables.h"
+#include "GamePrint.h"
+#include "InfoPrint.h"
+
 enum Menu
 {
 	exit_game, start_play, show_best_players, help, about_the_game,

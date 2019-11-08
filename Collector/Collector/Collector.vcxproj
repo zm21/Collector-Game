@@ -120,14 +120,17 @@
     <ClCompile Include="InfoPrint.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="StartGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collector.h" />
     <ClInclude Include="Drop.h" />
+    <ClInclude Include="GameCoords.h" />
     <ClInclude Include="GamePrint.h" />
     <ClInclude Include="GlobalVariables.h" />
     <ClInclude Include="InfoPrint.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="StartGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
