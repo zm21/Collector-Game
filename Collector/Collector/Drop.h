@@ -1,5 +1,5 @@
 #pragma once
-#include <Windows.h>
+#include <stdlib.h>
 struct Drop
 {
 	char s;  //символ який падає

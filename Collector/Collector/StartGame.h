@@ -1,10 +1,4 @@
 #pragma once
-#include "GamePrint.h"
-#include <Windows.h>
-enum Game_mode
-{
-	math_mode = 1, //математичний режим
-	verbal_mode = 2 //мовний режим
-};
-
+#include "Game.h"
 void Start_play();
+void Tracking_collerctor();

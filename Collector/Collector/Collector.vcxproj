@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Drop.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GamePrint.cpp" />
     <ClCompile Include="InfoPrint.cpp" />
     <ClCompile Include="Menu.cpp" />
@@ -125,6 +126,7 @@
   <ItemGroup>
     <ClInclude Include="Collector.h" />
     <ClInclude Include="Drop.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameCoords.h" />
     <ClInclude Include="GamePrint.h" />
     <ClInclude Include="GlobalVariables.h" />
