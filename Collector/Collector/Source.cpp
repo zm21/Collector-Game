@@ -38,29 +38,6 @@ enum Score_inf
 	score_boost_default = 1, //дефолтне значення бусту (стає при втраті серії з правильно спійманих елементів поспіль)
 };
 
-enum Math_mode_symbols_diapazone //Діапазони символів по ASCII для математичного режиму 
-{
-	min_first_diapazone_math = 40, max_first_diapazone_math = 43,  //перший математичний діапазон (множення, додавання, дужки)
-	second_diapazone_math = 45,									   //другий математичний діапазон(входить тільки знак віднімання)
-	min_third_diapazone_math = 47, max_third_diapazone_max = 57,   //третій математичний діапазон(знак ділення та цифри від 0 до 9)
-	min_fourth_diapazone_math = 60, max_fourth_diapazone_math = 62 //четвертий математичний діапазон (знаки)
-};
-enum Verbal_mode_symbols_diapazone //Діапазони символів по ASCII для мовного режиму 
-{
-	first_diapazone_verbal = 33,  //перший мовний діапазон(знак оклику)
-	second_diapazone_verbal = 44, //другий мовний діапазон(кома)
-	third_diapazone_verbal = 46,  //третій мовний діапазон(крапка)
-	fourth_diapazone_varbal = 63, //четвертий мовний діапазон(знак питання)
-	min_fifth_diapazone_verbal = 65, max_fifth_diapazone_verbal = 90, //п'ятий мовний діапазон (великі літери)
-	min_sixth_diapazone_verbal = 97, max_sixth_diapazone_verbal = 122 //шостий мовний діапазон (малі літери)
-};
-
-
-
-
-
-
-
 
 void gotoxy(int x, int y)
 {
@@ -71,11 +48,9 @@ void gotoxy(int x, int y)
 void Clear_line(int const x, const int y);
 
 
-
-void Print_game_logo();
 void Start_play();
-void Print_play_zone();
-void Print_interface();
+void Print_game_logo();
+
 
 void Tracking_collerctor();
 
@@ -94,31 +69,6 @@ int main()
 
 
 
-void Help()
-{
-	system("cls");
-	Print_game_logo();
-	cout << endl << "\t\t\t\t\t Hi, welcome to COLLECTOR" << endl;
-	system("pause");
-}
-
-void About_the_game()
-{
-	system("cls");
-	Print_game_logo();
-	cout << endl << "\t\t\t\t\t Developer Mikola Zaiets" << endl;
-	system("pause");
-}
-
-void Print_game_logo()
-{
-	cout << "\t\t  _____    _____   __      __      _____    _____   ________   _____   _____	" << endl;
-	cout << "\t\t |   __|  |  _  | |  |    |  |    |   __|  |   __| |__    __| |  _  | |  _  |" << endl;
-	cout << "\t\t |  |     | | | | |  |    |  |    |  |__   |  |       |  |    | | | | | |_| |	" << endl;
-	cout << "\t\t |  |     | | | | |  |    |  |    |   __|  |  |       |  |    | | | | |  _  |	" << endl;
-	cout << "\t\t |  |__   | |_| | |  |__  |  |__  |  |__   |  |__     |  |    | |_| | | | \\ \\	" << endl;
-	cout << "\t\t |______| |_____| |_____| |_____| |_____|  |_____|    |__|    |_____| |_|  \\_\\ " << endl;
-}
 
 void Start_play()
 {
@@ -156,66 +106,7 @@ void Start_play()
 	system("pause");
 }
 
-void Print_play_zone()
-{
-	system("cls");
-	int length_play_zone = 31; //довжина ігрового поля
-	int height_play_zone = 25; //висота ігрового поля
-	cout << " "; //ліва верхня грань ігрового поля
-	for (int i = 0; i < length_play_zone - 2; i++)
-	{
-		cout << "_";//верхня межа
-	}
-	cout << " "; //права верхня грань ігрового поля
-	cout << endl;
-	for (int i = 0; i < height_play_zone; i++)
-	{
-		cout << "|";
-		if (i == height_play_zone - 1)
-			for (int i = 0; i < length_play_zone - 2; i++) //-2 тому, що 1 символ на ліву бокову грань "|" і ще 1 на праву
-				cout << "_";
-		else
-			for (int j = 0; j < length_play_zone - 2; j++) //-2 тому, що 1 символ на ліву бокову грань "|" і ще 1 на праву
-				cout << " ";
-		cout << "|" << endl;
-	}
 
-	int length_interface_zone = 30; //довжина інтрефейс зони
-	int height_interface_zone = 9; //висота інтрефейс зони
-
-	int x = length_play_zone;
-	int y = 0;
-	gotoxy(x, y);
-	for (int i = 0; i < length_interface_zone; i++)
-	{
-		cout << "_";
-	}
-	for (int i = 0; i < height_interface_zone; i++)
-	{
-		y++; //перехід на наступний рядок
-		gotoxy(x, y);
-		for (int j = 0; j < length_interface_zone; j++)
-		{
-			if (height_interface_zone - 1 == i)
-				cout << "_";
-			else
-				cout << " ";
-		}
-		cout << "|" << endl;
-	}
-}
-
-void Print_interface()
-{
-	gotoxy(x_player_name, y_player_name);
-	cout << "Player name: " << player_name;
-	gotoxy(x_life, y_life);
-	cout << "Life: " << life;
-	gotoxy(x_score, y_score);
-	cout << "Score: " << score;
-	gotoxy(x_bonus_task, y_bonus_task);
-	cout << "Bonus task: " << score;
-}
 
 void Tracking_collerctor()
 {

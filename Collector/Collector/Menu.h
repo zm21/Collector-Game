@@ -8,7 +8,6 @@ enum Menu
 };
 
 void Menu(); //Стартове меню
-void Help();
-void About_the_game();
+
 
 
