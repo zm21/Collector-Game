@@ -1,23 +1,12 @@
-#include <iostream>
+#include "Menu.h"
 #include <Windows.h>
 #include <conio.h>
 #include <ctime>
 using namespace std;
 
-int score = 0;
-int score_add = 100;
-float score_boost = 1;
-int const SCORE_LVL = 300;
-int life = 3;
-int const SIZE_PLAYER_NAME = 255;
-char player_name[SIZE_PLAYER_NAME];
-short game_mode = 0;
 
-enum Menu
-{
-	exit_game, start_play, show_best_players, help, about_the_game,
-	x_enter_seletion = 45, y_enter_seletion = 17
-};
+
+
 enum control_the_game
 {
 	left = 'a', right = 'd'
@@ -48,7 +37,7 @@ enum Score_inf
 	score_add_default = 100, //дефолтне значення очків за спійманий символ
 	score_boost_default = 1, //дефолтне значення бусту (стає при втраті серії з правильно спійманих елементів поспіль)
 };
-float score_boost_koef_default = 0.1; //коефіцієнт бусту під час серії правильно спійманих елементів під ряд
+
 enum Math_mode_symbols_diapazone //Діапазони символів по ASCII для математичного режиму 
 {
 	min_first_diapazone_math = 40, max_first_diapazone_math = 43,  //перший математичний діапазон (множення, додавання, дужки)
@@ -65,27 +54,13 @@ enum Verbal_mode_symbols_diapazone //Діапазони символів по ASCII для мовного реж
 	min_fifth_diapazone_verbal = 65, max_fifth_diapazone_verbal = 90, //п'ятий мовний діапазон (великі літери)
 	min_sixth_diapazone_verbal = 97, max_sixth_diapazone_verbal = 122 //шостий мовний діапазон (малі літери)
 };
-struct Collector_settings //структура самого коллектора
-{
-	char s = 'U'; // "скін" (символ, вигляд) коллектора
-	int x = 15; //вісь руху коллектора
-	int const y = 24; //висота на якій рухається коллектор
-};
 
-int const MAX_NUMBER_OF_FALLING_SYMBOL = 10; //максимальна кількість падаючих символів
-struct Drop
-{
-	char s;  //символ який падає
-	int  x;  //позиція спавну предмету
-	int y; //висота спавну предметів
-};
 
-Collector_settings collector;
 
-enum Collector_direction
-{
-	move_left = 'a', move_right = 'd'
-};
+
+
+
+
 
 void gotoxy(int x, int y)
 {
@@ -95,15 +70,15 @@ void gotoxy(int x, int y)
 }
 void Clear_line(int const x, const int y);
 
-void Menu();
-void Help();
-void About_the_game();
+
+
 void Print_game_logo();
 void Start_play();
 void Print_play_zone();
 void Print_interface();
+
 void Tracking_collerctor();
-void Ini_falling_symbol(Drop &falling_symbol);
+
 void Cathc_true_drop(Drop &falling_symbol);
 void Cathc_false_drop(Drop &falling_symbol);
 void No_cathc_true_drop(Drop &falling_symbol);
@@ -118,58 +93,6 @@ int main()
 }
 
 
-void Menu() //Стартове меню
-{
-	system("color B0");
-	int action_menu{};
-	while (true)
-	{
-		system("cls");
-		Print_game_logo();
-		cout << endl << "\t\t\t\t\t\t  [" << start_play << "]Play" << endl;
-		cout << endl << "\t\t\t\t\t    [" << show_best_players << "]Show best players" << endl;
-		cout << endl << "\t\t\t\t\t\t  [" << help << "]Help" << endl;
-		cout << endl << "\t\t\t\t\t     [" << about_the_game << "]About the game" << endl;
-		cout << endl << "\t\t\t\t\t\t  [" << exit_game << "]Exit" << endl;
-		gotoxy(x_enter_seletion, y_enter_seletion);
-		cout << "Selected options:";
-		cin >> action_menu;
-		switch (action_menu)
-		{
-		case start_play:
-		{
-			Start_play();
-			break;
-		}
-		case show_best_players:
-		{
-			break;
-		}
-		case help:
-		{
-			Help();
-			break;
-		}
-		case about_the_game:
-		{
-			About_the_game();
-			break;
-		}
-		case exit_game:
-		{
-			exit(0);
-			break;
-		}
-		default:
-		{
-			gotoxy(x_enter_seletion, y_enter_seletion);
-			cout << "Error. Wrong action!" << endl;
-			system("pause");
-			break;
-		}
-		}
-	}
-}
 
 void Help()
 {
@@ -318,7 +241,8 @@ void Tracking_collerctor()
 	int delay = 500; //затримка падіння
 	clock_t start = clock();
 	clock_t start_add{};
-
+	life = 0;
+	score = 0;
 	while (life > 0)
 	{
 		if (clock() >= start + delay)
@@ -437,80 +361,7 @@ void Tracking_collerctor()
 	free(falling_symbols); //звільняємо пам'ять від масиву структири з падаючими символами
 }
 
-void Ini_falling_symbol(Drop &falling_symbol)
-{
-	int action = 1 + rand() % (2 - 1 + 1);
-	//рондом символа за ASCII TABLE
-	switch (action)
-	{
-	case 1: //математичний рандом
-	{
-		short math_random = 1 + rand() % (4 - 1 + 1); //рандом діапазону 
-		switch (math_random)
-		{
-		case 1: //перший математичний діапазон (множення, додавання, дужки)
-		{
-			falling_symbol.s = min_first_diapazone_math + rand() % (max_first_diapazone_math - min_first_diapazone_math + 1);
-			break;
-		}
-		case 2: //другий математичний діапазон(входить тільки знак віднімання)
-		{
-			falling_symbol.s = second_diapazone_math;
-			break;
-		}
-		case 3: //третій математичний діапазон(знак ділення та цифри від 0 до 9)
-		{
-			falling_symbol.s = min_third_diapazone_math + rand() % (max_third_diapazone_max - min_third_diapazone_math + 1);
-			break;
-		}
-		case 4: //четвертий математичний діапазон (знаки)
-		{
-			falling_symbol.s = min_fourth_diapazone_math + rand() % (max_fourth_diapazone_math - min_fourth_diapazone_math + 1);
-			break;
-		}
-		}
-		break;
-	}
-	case 2: //мовний рандом
-	{
-		short random_language = 1 + rand() % (6 - 1 + 1);
-		switch (random_language)
-		{
-		case 1: //перший мовний діапазон(знак оклику)
-		{
-			falling_symbol.s = first_diapazone_verbal;
-			break;
-		}
-		case 2: //другий мовний діапазон(кома)
-		{
-			falling_symbol.s = second_diapazone_verbal;
-			break;
-		}
-		case 3: //третій мовний діапазон(крапка)
-		{
-			falling_symbol.s = third_diapazone_verbal;
-			break;
-		}
-		case 4: //четвертий мовний діапазон(знак питання)
-		{
-			falling_symbol.s = fourth_diapazone_varbal;
-			break;
-		}
-		case 5: //п'ятий мовний діапазон (великі літери)
-		{
-			falling_symbol.s = min_fifth_diapazone_verbal + rand() % (max_fifth_diapazone_verbal - min_fifth_diapazone_verbal + 1);
-			break;
-		}
-		case 6: //шостий мовний діапазон (малі літери)
-		{
-			falling_symbol.s = min_sixth_diapazone_verbal + rand() % (max_sixth_diapazone_verbal - min_sixth_diapazone_verbal + 1);
-			break;
-		}
-		}
-		break;
-	}
-	}
-}
+
 
 
 void Cathc_true_drop(Drop &falling_symbol) //спіймано правильний символ
