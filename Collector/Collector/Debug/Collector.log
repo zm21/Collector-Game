@@ -1,2 +1,10 @@
-﻿  Source.cpp
+﻿  Game.cpp
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\game.cpp(165): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\game.cpp(196): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\game.cpp(198): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  GamePrint.cpp
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\gameprint.cpp(64): warning C4838: conversion from 'int' to 'SHORT' requires a narrowing conversion
+  Menu.cpp
+  Source.cpp
+  Generating Code...
   Collector.vcxproj -> D:\Mikola\ШАГ\Курсова 1-й семестр Collector\Collector\Debug\Collector.exe

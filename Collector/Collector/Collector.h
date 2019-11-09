@@ -9,7 +9,7 @@ namespace
 {
 	Collector_settings collector;
 }
-	enum Collector_direction
-	{
-		move_left = 'a', move_right = 'd'
-	};
+enum Collector_direction
+{
+	move_left = 'a', move_right = 'd'
+};

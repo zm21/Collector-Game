@@ -131,6 +131,7 @@
     <ClInclude Include="GlobalVariables.h" />
     <ClInclude Include="InfoPrint.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
