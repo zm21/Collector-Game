@@ -49,7 +49,7 @@ void Print_play_zone()
 	}
 }
 
-void Print_interface()
+void Print_interface(char* player_name, const int &life, const int &score)
 {
 	gotoxy(x_player_name, y_player_name);
 	cout << "Player name: " << player_name;
@@ -57,8 +57,6 @@ void Print_interface()
 	cout << "Life: " << life;
 	gotoxy(x_score, y_score);
 	cout << "Score: " << score;
-	gotoxy(x_bonus_task, y_bonus_task);
-	cout << "Bonus task: " << score;
 }
 
 void gotoxy(int x, int y)

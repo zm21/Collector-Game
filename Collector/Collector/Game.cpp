@@ -1,5 +1,6 @@
 #include "Game.h"
 
+
 void Start_play()
 {
 	system("cls");
@@ -29,7 +30,9 @@ void Start_play()
 		cin >> game_mode;
 	}
 	Print_play_zone();
-	Print_interface();
+	life = life_default;
+	score = NULL;
+	Print_interface(player_name, life, score);
 	Tracking_collerctor();
 	Sleep(3000);
 	gotoxy(0, 26);
@@ -61,8 +64,8 @@ void Tracking_collerctor()
 	int delay = 500; //затримка падіння
 	clock_t start = clock();
 	clock_t start_add{};
-	life = 3;
-	score = 0;
+	life = life_default;
+	score = NULL;
 	while (life > 0)
 	{
 		if (clock() >= start + delay)
@@ -193,7 +196,7 @@ void Cathc_true_drop(Drop &falling_symbol) //спіймано правильний символ
 	score_add *= score_boost;
 	score += score_add;
 	score_boost += score_boost_koef_default; //збільшуємо буст
-	Print_interface();
+	Print_interface(player_name, life, score);
 	Ini_falling_symbol(falling_symbol); //рандомимо новий символ
 }
 
@@ -207,7 +210,7 @@ void Cathc_false_drop(Drop &falling_symbol) //спіймано не правильний символ
 	//повертаємо дефолтні значення бусту очків так, як серія спійманих поспіль символів перервана
 	score_boost = score_boost_default;
 	score_add = score_add_default;
-	Print_interface();
+	Print_interface(player_name, life, score);
 	Ini_falling_symbol(falling_symbol); //рандомимо новий символ
 }
 
@@ -221,7 +224,7 @@ void No_cathc_true_drop(Drop &falling_symbol) //не спіймано правильний символ
 	//повертаємо дефолтні значення бусту очків так, як серія спійманих поспіль символів перервана
 	score_boost = score_boost_default;
 	score_add = score_add_default;
-	Print_interface();
+	Print_interface(player_name, life, score);
 	Ini_falling_symbol(falling_symbol); //рандомимо новий символ
 }
 
@@ -231,7 +234,7 @@ void No_cathc_false_drop(Drop &falling_symbol) //не спіймано НЕ правильний симво
 	cout << "_";
 	falling_symbol.x = left_spawn + rand() % (right_spawn - left_spawn + 1);
 	falling_symbol.y = height_spawn;
-	Print_interface();
+	Print_interface(player_name, life, score);
 	Ini_falling_symbol(falling_symbol); //рандомимо новий символ
 }
 

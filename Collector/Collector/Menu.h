@@ -1,5 +1,5 @@
 #pragma once
-#include "StartGame.h"
+#include "Game.h"
 enum Menu
 {
 	exit_game, start_play, show_best_players, help, about_the_game,
