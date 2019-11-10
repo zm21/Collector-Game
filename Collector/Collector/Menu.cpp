@@ -25,6 +25,11 @@ void Menu() //Стартове меню
 		}
 		case show_best_players:
 		{
+			Create_arr_players(players, PLAYER_AMOUNT);
+			Load_players_from_file(players, PLAYER_AMOUNT);
+			Sort_player(players, PLAYER_AMOUNT);
+			Print_best_player(players, PLAYER_AMOUNT);
+			//free(players);
 			break;
 		}
 		case help:

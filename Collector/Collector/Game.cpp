@@ -61,7 +61,7 @@ void Tracking_collerctor()
 	bool add = false;
 	gotoxy(collector.x, collector.y);
 	cout << collector.s;
-	int delay = 500; //затримка падіння
+	int delay = 200; //затримка падіння
 	clock_t start = clock();
 	clock_t start_add{};
 	life = life_default;
@@ -180,6 +180,14 @@ void Tracking_collerctor()
 			add = false;
 		}
 	}
+	//Load_player_amount(PLAYER_AMOUNT);
+	Load_players_from_file(players, PLAYER_AMOUNT);
+	cout << "Player amount:" << PLAYER_AMOUNT << "!!!!!!!!!" << endl; 
+	system("pause");
+	Add_player(player_name, score, players, PLAYER_AMOUNT);
+	//free(players);
+	Create_arr_players(players, PLAYER_AMOUNT);
+	cout << "Player amount:" << PLAYER_AMOUNT << "!!!!!!!!!" << endl;
 	delete score_temp; //звільняємо пам'ять від темпових очків
 	free(falling_symbols); //звільняємо пам'ять від масиву структири з падаючими символами
 }

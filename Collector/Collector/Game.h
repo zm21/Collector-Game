@@ -4,6 +4,7 @@
 #include "GamePrint.h"
 #include <ctime>
 #include <conio.h>
+#include "SaveAndLoadPlayer.h"
 
 enum Game_mode
 {
@@ -16,6 +17,7 @@ enum Score_and_life_inf
 	score_boost_default = 1, //дефолтне значення бусту (стає при втраті серії з правильно спійманих елементів поспіль)
 	life_default = 3 //життя на початку гри
 };
+
 
 void Start_play();
 
