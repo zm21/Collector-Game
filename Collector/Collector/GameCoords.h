@@ -14,5 +14,6 @@ enum Game_interface_coords   //координати ігрового інтерфейсу
 	x_bonus_task = 33, y_bonus_task = 8, // позиція виводу бонусного завдання
 	left_spawn = 1, right_spawn = 29, //ліва та права межа спавна дропу
 	height_spawn = 1, //висота спавну
-	left_border_move = 0, right_border_move = 30 //ліва та права межа руху коллектора
+	left_border_move = 0, right_border_move = 30, //ліва та права межа руху коллектора
+	x_game_over = 0, y_game_over = 7
 };

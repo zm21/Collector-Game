@@ -180,14 +180,11 @@ void Tracking_collerctor()
 			add = false;
 		}
 	}
-	//Load_player_amount(PLAYER_AMOUNT);
+	gotoxy(x_game_over, y_game_over);
+	Print_GAME_OVER();
 	Load_players_from_file(players, PLAYER_AMOUNT);
-	cout << "Player amount:" << PLAYER_AMOUNT << "!!!!!!!!!" << endl; 
-	system("pause");
 	Add_player(player_name, score, players, PLAYER_AMOUNT);
-	//free(players);
 	Create_arr_players(players, PLAYER_AMOUNT);
-	cout << "Player amount:" << PLAYER_AMOUNT << "!!!!!!!!!" << endl;
 	delete score_temp; //звільняємо пам'ять від темпових очків
 	free(falling_symbols); //звільняємо пам'ять від масиву структири з падаючими символами
 }

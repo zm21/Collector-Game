@@ -29,7 +29,6 @@ void Menu() //Стартове меню
 			Load_players_from_file(players, PLAYER_AMOUNT);
 			Sort_player(players, PLAYER_AMOUNT);
 			Print_best_player(players, PLAYER_AMOUNT);
-			//free(players);
 			break;
 		}
 		case help:

@@ -12,6 +12,7 @@ enum Coord_show_best_players
 
 void gotoxy(int x, int y);
 void Print_game_logo();
+void Print_GAME_OVER();
 void Print_best_player(Player* players, int &PLAYER_AMOUNT);
 void Help();
 void About_the_game();
