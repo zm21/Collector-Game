@@ -114,13 +114,37 @@ void Tracking_collerctor()
 				}
 				break;
 			}
+			case big_move_left:
+			{
+				if (collector.x - big_move_distance > left_border_move)
+				{
+					collector.x-= big_move_distance;
+				}
+				else
+				{
+					collector.x = left_border_move+1;
+				}
+				break;
+			}
+			case big_move_right:
+			{
+				if (collector.x + big_move_distance < right_border_move)
+				{
+					collector.x += big_move_distance;
+				}
+				else
+				{
+					collector.x = right_border_move-1;
+				}
+				break;
+			}
 			case '`':
 			{
 				score += 100;
 				Print_interface(player_name, life, score);
 				break;
 			}
-			case 'l':
+			case 'p':
 			{
 				life -= 3;
 				Print_interface(player_name, life, score);
@@ -205,7 +229,9 @@ void Tracking_collerctor()
 		}
 	}
 	gotoxy(x_game_over, y_game_over);
+	SetColor(game_over_color, console_color);
 	Print_GAME_OVER();
+	SetColor(default_text_color, console_color);
 	Load_players_from_file(players, PLAYER_AMOUNT);
 	Add_player(player_name, score, players, PLAYER_AMOUNT);
 	Clear_arr_players(players, PLAYER_AMOUNT);

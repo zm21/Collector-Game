@@ -5,6 +5,29 @@ void Help()
 	system("cls");
 	Print_game_logo();
 	cout << endl << "\t\t\t\t\t Hi, welcome to COLLECTOR" << endl;
+	cout << endl << "\t\tThe collector is the main character, it looks like 'U'. There are 2 modes" << endl;
+	cout<<endl<<"\t\tin this game: verbal and math. In math mode, your goal is to catch numbers"<<endl;
+	cout<<endl<<"\t\tand maths symbols.The goal of verbal mode is: catching letters and punctuation." << endl;
+	cout << endl << "\t\tControl the collector is quite easy.There are 2 types of moving normal and fast." << endl;
+	cout << endl << "\t\tNormal controls are with the '";
+	SetColor(logo_text_color, console_color);
+	cout << (char)move_left;
+	SetColor(default_text_color, console_color);
+	cout << "' and '";
+	SetColor(logo_text_color, console_color);
+	cout << (char)move_right;
+	SetColor(default_text_color, console_color);
+	cout<< "' keys left and right respectively." << endl;
+	cout << endl << "\t\tQuick control is performed with the '"; 
+	SetColor(logo_text_color, console_color);
+	cout << (char)big_move_left;
+	SetColor(default_text_color, console_color);
+	cout << "' and '";
+	SetColor(logo_text_color, console_color);
+	cout << (char)big_move_right;
+	SetColor(default_text_color, console_color);
+	cout << "' keys left and right respectively" << endl;
+	cout << endl<<"\t\t\t\t";
 	system("pause");
 }
 

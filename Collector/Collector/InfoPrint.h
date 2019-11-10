@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Player.h"
+#include "Collector.h"
 using namespace std;
 
 enum Coord_show_best_players
@@ -13,7 +14,7 @@ enum Console_and_text_color
 {
 	console_color = 11,
 	default_text_color = 0,
-	logo_text_color = 1,
+	logo_text_color = 1, game_over_color=1,
 	error_text_color=4
 };
 
