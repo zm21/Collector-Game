@@ -28,8 +28,8 @@ void Print_game_logo()
 
 void Print_GAME_OVER()
 {
-	cout << "	 ________    ______    ___    ___   _____	 " << endl;
-	cout << "	|   _____|  /  __  \\  |   \\  /   | |   __|		 " << endl;
+	cout << "	 ________    ______    ___    ___   _____     " << endl;
+	cout << "	|   _____|  /  __  \\  |   \\  /   | |   __|    " << endl;
 	cout << "	|  |  ___  |  |__|  | |    \\/    | |  |__   " << endl;
 	cout << "	|  | |__ | |   __   | |  |\\  /|  | |   __|	 " << endl;
 	cout << "	|  |___| | |  |  |  | |  | \\/ |  | |  |__	 " << endl;
@@ -40,14 +40,15 @@ void Print_GAME_OVER()
 	cout << "	|  | |  |   \\  \\/  /   |   __| |   _   |	 " << endl;
 	cout << "	|  |_|  |    \\    /    |  |__  |  | \\  \\	 " << endl;
 	cout << "	|_______|     \\__/     |_____| |__|  \\__\\		 " << endl;
-	cout << "                                                 " << endl;
+	cout << "|                                                " << endl;
 }
 void Print_best_player(Player* players, int &PLAYER_AMOUNT)
 {
 	system("cls");
 	Print_game_logo();\
 	
-	
+	if (PLAYER_AMOUNT != 0)
+	{
 		int y_print_player = y_print_player_default;
 		gotoxy(x_print_player, y_print_player);
 		cout << "Player name\tBest score" << endl;
@@ -59,7 +60,7 @@ void Print_best_player(Player* players, int &PLAYER_AMOUNT)
 				gotoxy(x_print_player, y_print_player);
 				cout << "[" << i + 1 << "]" << players[i].player_name;
 				gotoxy(x_print_score, y_print_player);
-				cout<<players[i].best_score << endl;
+				cout << players[i].best_score << endl;
 				y_print_player += y_interval;
 			}
 		}
@@ -74,10 +75,11 @@ void Print_best_player(Player* players, int &PLAYER_AMOUNT)
 				y_print_player += y_interval;
 			}
 		}
-		else
-		{
-			cout << "No players!" << endl;
-		}
+	}
+	else
+	{
+		cout << endl<<"\t\t\t\t\t\t No players!" << endl;
+	}
 	
 	system("pause");
 }

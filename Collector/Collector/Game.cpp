@@ -102,6 +102,18 @@ void Tracking_collerctor()
 				}
 				break;
 			}
+			case '`':
+			{
+				score += 100;
+				Print_interface(player_name, life, score);
+				break;
+			}
+			case 'l':
+			{
+				life -= 3;
+				Print_interface(player_name, life, score);
+				break;
+			}
 			}
 			gotoxy(collector.x, collector.y);
 			cout << collector.s;

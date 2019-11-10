@@ -25,7 +25,7 @@ void Print_play_zone()
 	}
 
 	int length_interface_zone = 30; //довжина інтрефейс зони
-	int height_interface_zone = 9; //висота інтрефейс зони
+	int height_interface_zone = 7; //висота інтрефейс зони
 
 	int x = length_play_zone;
 	int y = 0;
