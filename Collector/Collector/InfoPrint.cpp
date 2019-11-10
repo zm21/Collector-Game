@@ -36,6 +36,9 @@ void About_the_game()
 	system("cls");
 	Print_game_logo();
 	cout << endl << "\t\t\t\t\t Developer Mikola Zaiets" << endl;
+	cout << endl << "\t\t\tI am 16 years old, programming is my hobby, I am studying at itstep." << endl;
+	cout << endl << "\t\t\tThis game is a term paper of the first semester. Hope you like it." << endl;
+	cout << endl << "\t\t\t\t\t";
 	system("pause");
 }
 
@@ -105,6 +108,6 @@ void Print_best_player(Player* players, int &PLAYER_AMOUNT)
 	{
 		cout << endl<<"\t\t\t\t\t\t No players!" << endl;
 	}
-	
+	cout << endl << "\t\t\t\t";
 	system("pause");
 }
