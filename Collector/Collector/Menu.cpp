@@ -4,6 +4,7 @@ void Menu() //Стартове меню
 {
 	system("color B0");
 	int action_menu{};
+	int const SIZE_OF_ACTION = 255;
 	while (true)
 	{
 		system("cls");
@@ -13,9 +14,11 @@ void Menu() //Стартове меню
 		cout << endl << "\t\t\t\t\t\t  [" << help << "]Help" << endl;
 		cout << endl << "\t\t\t\t\t     [" << about_the_game << "]About the game" << endl;
 		cout << endl << "\t\t\t\t\t\t  [" << exit_game << "]Exit" << endl;
-		gotoxy(x_enter_seletion, y_enter_seletion);
+		gotoxy(x_enter_selection, y_enter_selection);
 		cout << "Selected options:";
-		cin >> action_menu;
+		char action_str[SIZE_OF_ACTION];
+		cin.getline(action_str, SIZE_OF_ACTION);
+		action_menu = (atoi(action_str) != 0) ? atoi(action_str) : wrong_action;
 		switch (action_menu)
 		{
 		case start_play:
@@ -48,8 +51,9 @@ void Menu() //Стартове меню
 		}
 		default:
 		{
-			gotoxy(x_enter_seletion, y_enter_seletion);
 			SetColor(error_text_color, console_color);
+			Clear_line(x_enter_selection, y_enter_selection);
+			gotoxy(x_enter_selection, y_enter_selection);
 			cout << "Error. Wrong action!" << endl;
 			SetColor(default_text_color, console_color);
 			system("pause");
@@ -58,4 +62,5 @@ void Menu() //Стартове меню
 		}
 	}
 }
+
 

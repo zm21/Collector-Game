@@ -8,6 +8,7 @@
 
 enum Game_mode
 {
+	wrong_game_mode = -1,
 	math_mode = 1, //математичний режим
 	verbal_mode = 2 //мовний режим
 };
@@ -20,7 +21,6 @@ enum Score_and_life_inf
 
 
 void Start_play();
-
 void Tracking_collerctor();
 void Cathc_true_drop(Drop &falling_symbol);
 void Cathc_false_drop(Drop &falling_symbol);

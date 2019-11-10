@@ -7,7 +7,6 @@ void Start_play()
 	Print_game_logo();
 	gotoxy(x_enter_player_name, y_enter_player_name);
 	cout << "Enter player name:";
-	cin.ignore();
 	cin.getline(player_name, SIZE_PLAYER_NAME);
 	while (strlen(player_name) > 10)
 	{
@@ -28,13 +27,19 @@ void Start_play()
 	cout << "[" << verbal_mode << "]Verbal mode";
 	gotoxy(x_enter_the_selected_game_mode, y_enter_the_selected_game_mode);
 	cout << "Game mode:";
-	cin >> game_mode;
+	int const SIZE_OF_GAME_MODE = 255;
+	char game_mode_str[SIZE_OF_GAME_MODE];
+	cin.getline(game_mode_str, SIZE_OF_GAME_MODE);
+	game_mode = (atoi(game_mode_str) != 0) ? atoi(game_mode_str) : wrong_game_mode;
 	while (game_mode<math_mode || game_mode>verbal_mode)
 	{
 		Clear_line(x_re_enter_the_selected_game_mode, y_re_enter_the_selected_game_mode);
 		gotoxy(x_re_enter_the_selected_game_mode, y_re_enter_the_selected_game_mode);
+		SetColor(error_text_color, console_color);
 		cout << "Wrong game mode! Try again:";
-		cin >> game_mode;
+		SetColor(default_text_color, console_color);
+		cin.getline(game_mode_str, SIZE_OF_GAME_MODE);
+		game_mode = (atoi(game_mode_str) != 0) ? atoi(game_mode_str) : wrong_game_mode;
 	}
 	Print_play_zone();
 	life = life_default;
