@@ -1,1 +1,6 @@
-﻿  Collector.vcxproj -> D:\Mikola\ШАГ\Курсова 1-й семестр Collector\Collector\Debug\Collector.exe
+﻿  Game.cpp
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\game.cpp(21): warning C4018: '<': signed/unsigned mismatch
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\game.cpp(184): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\game.cpp(220): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+d:\mikola\шаг\курсова 1-й семестр collector\collector\collector\game.cpp(222): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  Collector.vcxproj -> D:\Mikola\ШАГ\Курсова 1-й семестр Collector\Collector\Debug\Collector.exe

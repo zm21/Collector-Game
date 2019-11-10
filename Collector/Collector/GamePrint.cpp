@@ -59,6 +59,12 @@ void Print_interface(char* player_name, const int &life, const int &score)
 	cout << "Score: " << score;
 }
 
+void SetColor(Console_and_text_color text, Console_and_text_color background)
+{
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hStdOut, (WORD)((background << 4) | text));
+}
+
 void gotoxy(int x, int y)
 {
 	COORD pos = { x, y };

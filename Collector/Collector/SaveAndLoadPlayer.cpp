@@ -107,14 +107,10 @@ void Add_player( char* player_name, int score, Player*&players, int &PLAYER_AMOU
 			players[player_index].best_score = score;
 		}
 	}
-	if (PLAYER_AMOUNT > 1)
-	{
-		Sort_player(players, PLAYER_AMOUNT);
-	}
 	Save_players_to_file(players, PLAYER_AMOUNT);
 }
 
-void Create_arr_players(Player*&players, int &PLAYER_AMOUNT)
+void Clear_arr_players(Player*&players, int &PLAYER_AMOUNT)
 {
 	free(players);
 	Player* players_n ;

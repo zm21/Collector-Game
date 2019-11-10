@@ -25,7 +25,7 @@ void Menu() //Стартове меню
 		}
 		case show_best_players:
 		{
-			Create_arr_players(players, PLAYER_AMOUNT);
+			Clear_arr_players(players, PLAYER_AMOUNT);
 			Load_players_from_file(players, PLAYER_AMOUNT);
 			Sort_player(players, PLAYER_AMOUNT);
 			Print_best_player(players, PLAYER_AMOUNT);
@@ -49,7 +49,9 @@ void Menu() //Стартове меню
 		default:
 		{
 			gotoxy(x_enter_seletion, y_enter_seletion);
+			SetColor(error_text_color, console_color);
 			cout << "Error. Wrong action!" << endl;
+			SetColor(default_text_color, console_color);
 			system("pause");
 			break;
 		}

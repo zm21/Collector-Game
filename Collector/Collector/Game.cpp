@@ -7,13 +7,20 @@ void Start_play()
 	Print_game_logo();
 	gotoxy(x_enter_player_name, y_enter_player_name);
 	cout << "Enter player name:";
-	cin >> player_name;
+	cin.ignore();
+	cin.getline(player_name, SIZE_PLAYER_NAME);
 	while (strlen(player_name) > 10)
 	{
 		Clear_line(x_re_enter_player_name, y_enter_player_name);
 		gotoxy(x_re_enter_player_name, y_enter_player_name);
+		SetColor(error_text_color, console_color);
 		cout << "Maximum nickname length is 10 characters! Try again:";
-		cin >> player_name;
+		SetColor(default_text_color, console_color);
+		cin.getline(player_name, SIZE_PLAYER_NAME);
+	}
+	for (int i = 0; i < strlen(player_name); i++) //заміна пробільних символів в нікнеймі на '_'
+	{
+		player_name[i] = (player_name[i] == ' ') ? '_' : player_name[i];
 	}
 	gotoxy(x_first_game_mode, y_first_game_mode);
 	cout << "[" << math_mode << "]Math mode";
@@ -196,7 +203,7 @@ void Tracking_collerctor()
 	Print_GAME_OVER();
 	Load_players_from_file(players, PLAYER_AMOUNT);
 	Add_player(player_name, score, players, PLAYER_AMOUNT);
-	Create_arr_players(players, PLAYER_AMOUNT);
+	Clear_arr_players(players, PLAYER_AMOUNT);
 	delete score_temp; //звільняємо пам'ять від темпових очків
 	free(falling_symbols); //звільняємо пам'ять від масиву структири з падаючими символами
 }

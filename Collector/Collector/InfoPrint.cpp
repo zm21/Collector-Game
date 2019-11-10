@@ -18,12 +18,14 @@ void About_the_game()
 
 void Print_game_logo()
 {
+	SetColor(logo_text_color, console_color);
 	cout << "\t\t  _____    _____   __      __      _____    _____   ________   _____   _____	" << endl;
 	cout << "\t\t |   __|  |  _  | |  |    |  |    |   __|  |   __| |__    __| |  _  | |  _  |" << endl;
 	cout << "\t\t |  |     | | | | |  |    |  |    |  |__   |  |       |  |    | | | | | |_| |	" << endl;
 	cout << "\t\t |  |     | | | | |  |    |  |    |   __|  |  |       |  |    | | | | |  _  |	" << endl;
 	cout << "\t\t |  |__   | |_| | |  |__  |  |__  |  |__   |  |__     |  |    | |_| | | | \\ \\	" << endl;
 	cout << "\t\t |______| |_____| |_____| |_____| |_____|  |_____|    |__|    |_____| |_|  \\_\\ " << endl;
+	SetColor(default_text_color, console_color);
 }
 
 void Print_GAME_OVER()
